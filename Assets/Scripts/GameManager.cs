@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public void GotoHome(){
-        SceneController.instance.GotoHome();
-    }
+
 }

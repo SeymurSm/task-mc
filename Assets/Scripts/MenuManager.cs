@@ -12,5 +12,12 @@ public class MenuManager : MonoBehaviour
 
     public void MusicControl(Toggle musicToggle){
         m_musicPlayer.enabled = musicToggle.isOn;
-    }   
+    }  
+
+    public void SetGameModeRows(int rows){
+        PlayerPrefs.SetInt(Application.identifier + "rows", rows);
+    }    
+    public void SetGameModeColumns(int columns){
+        PlayerPrefs.SetInt(Application.identifier + "columns", columns);
+    }    
 }

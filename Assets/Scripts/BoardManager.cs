@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class BoardManager : MonoBehaviour
 {
@@ -27,11 +28,21 @@ public class BoardManager : MonoBehaviour
 
     private byte turnCount = 0;
     private byte matchCount = 0;
+
+    int rows, columns;
     
     void Awake()
     {
+        rows = PlayerPrefs.GetInt(Application.identifier + "rows");
+        columns = PlayerPrefs.GetInt(Application.identifier + "columns");
+
+        if(rows == -1 && columns == -1){
+            rows = Random.Range(2, 8);
+            columns = Random.Range(2, 8);
+        }
+
         InitCards();
-        m_pairsRemaing = m_numberOfPairs;
+        m_pairsRemaing = (uint)(rows*columns)/2;
         CardClickNotifier.OnCardClick += CardWasClicked;
         StartCoroutine(DisableGridLayout());
     }
@@ -43,7 +54,9 @@ public class BoardManager : MonoBehaviour
     }
     private void InitCards()
     {
-        uint numberOfCards = m_numberOfPairs * 2;
+        uint numberOfCards = (uint)(rows * columns);
+        m_cardBoard.GetComponent<GridLayoutGroup>().constraintCount = columns;
+        
         for (uint i = 0; i < numberOfCards; i++)
             Instantiate(m_cardPrefab, m_cardBoard.transform);
     }

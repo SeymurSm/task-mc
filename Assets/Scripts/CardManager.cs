@@ -10,6 +10,9 @@ public class CardManager : MonoBehaviour
     [SerializeField] private CardSO[] m_possibleCards;
     
     private static LinkedList<CardSO> m_cardsToBeUsed;
+
+    int rows, columns;
+    
     private void Awake()
     {
         PopulateCardList();
@@ -17,12 +20,20 @@ public class CardManager : MonoBehaviour
 
     private void PopulateCardList()
     {
+        rows = PlayerPrefs.GetInt(Application.identifier + "rows");
+        columns = PlayerPrefs.GetInt(Application.identifier + "columns");
+
+        if(rows == -1 && columns == -1){
+            rows = Random.Range(2, 8);
+            columns = Random.Range(2, 8);
+        }
+
         m_cardsToBeUsed = new LinkedList<CardSO>();
-        foreach (var possibleCard in m_possibleCards)
+        for (int i = 0; i<rows*columns/2; i++)
         {
-            for (int i = 0; i < Constants.NUMBER_OF_REPEATED_CARDS; i++)
+            for (int j = 0; j < Constants.NUMBER_OF_REPEATED_CARDS; j++)
             {
-                m_cardsToBeUsed.AddLast(possibleCard);
+                m_cardsToBeUsed.AddLast(m_possibleCards[i]);
             }
         }
     }
