@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BoardManager : MonoBehaviour
 {
     public event Action OnGameOver = delegate {  }; 
     [SerializeField] private GameObject m_cardPrefab = null;
     [SerializeField] private GameObject m_cardBoard;
+    [SerializeField] private GameObject m_resultPanel;
+    [SerializeField] private TMP_Text m_resultText;
     [SerializeField] private uint m_numberOfPairs = 14;
-    [SerializeField] private RectTransform m_victoryParticles = null;
+
     [SerializeField] private AudioClip m_pairSound = null;
     [SerializeField] private AudioClip m_victorySound = null;
     
@@ -71,8 +74,10 @@ public class BoardManager : MonoBehaviour
             {
                 OnGameOver();
                 PlayerPrefs.SetInt(Constants.NEW_SCORE_FLAG, 1);
+                m_resultText.text = "Game Finished";
+                m_resultPanel.SetActive(true);
                 //TODO: Play victory sound
-                m_victoryParticles.gameObject.SetActive(true);
+               
             }
         }
         else
