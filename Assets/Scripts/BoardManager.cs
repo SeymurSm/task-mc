@@ -8,6 +8,7 @@ public class BoardManager : MonoBehaviour
 {
     public event Action OnGameOver = delegate {  }; 
     [SerializeField] private GameObject m_cardPrefab = null;
+    [SerializeField] private GameObject m_cardBoard;
     [SerializeField] private uint m_numberOfPairs = 14;
     [SerializeField] private RectTransform m_victoryParticles = null;
     [SerializeField] private AudioClip m_pairSound = null;
@@ -30,13 +31,13 @@ public class BoardManager : MonoBehaviour
     IEnumerator DisableGridLayout()
     {
         yield return new WaitForSecondsRealtime(.5f);
-        GetComponent<GridLayoutGroup>().enabled = false;
+        m_cardBoard.GetComponent<GridLayoutGroup>().enabled = false;
     }
     private void InitCards()
     {
         uint numberOfCards = m_numberOfPairs * 2;
         for (uint i = 0; i < numberOfCards; i++)
-            Instantiate(m_cardPrefab, transform);
+            Instantiate(m_cardPrefab, m_cardBoard.transform);
     }
 
     private void CardWasClicked(Card clickedCard)
