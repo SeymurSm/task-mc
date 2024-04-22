@@ -70,6 +70,7 @@ public class BoardManager : MonoBehaviour
         {
             TakeCardsFromBoard(clickedCard);
             //TODO: Play victory sound
+            AudioManager.instance.PlayPair();
             if (GameIsOver())
             {
                 OnGameOver();
@@ -77,6 +78,7 @@ public class BoardManager : MonoBehaviour
                 m_resultText.text = "Game Finished";
                 m_resultPanel.SetActive(true);
                 //TODO: Play victory sound
+                AudioManager.instance.PlayWon();
                
             }
         }

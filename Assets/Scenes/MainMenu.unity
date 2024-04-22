@@ -724,7 +724,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -734,10 +734,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: aa3a28d52f40e7948b3f238cab168cc8, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 4760e807ae7ee054fa0b53086b860f5a, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: aa3a28d52f40e7948b3f238cab168cc8, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: aa3a28d52f40e7948b3f238cab168cc8, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -781,8 +781,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: aa3a28d52f40e7948b3f238cab168cc8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1247,6 +1247,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687939817}
   m_CullTransparentMesh: 1
+--- !u!1001 &985799389
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5429743203503606215, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1355.6346
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 824.42957
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7940322
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163885758981789109, guid: 228f29432b163ca419af538af4e08707, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 228f29432b163ca419af538af4e08707, type: 3}
 --- !u!1 &1012680270
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,3 +2512,4 @@ SceneRoots:
   - {fileID: 210239160}
   - {fileID: 1854316108}
   - {fileID: 421942263}
+  - {fileID: 985799389}
