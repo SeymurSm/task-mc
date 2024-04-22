@@ -697,7 +697,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Matches
 
-    3'
+    0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -807,6 +807,8 @@ MonoBehaviour:
   m_cardBoard: {fileID: 553952065}
   m_resultPanel: {fileID: 1880373474}
   m_resultText: {fileID: 2083511125}
+  m_turnCount: {fileID: 2039004540}
+  m_matchesCount: {fileID: 1113490833}
   m_numberOfPairs: 8
   m_pairSound: {fileID: 8300000, guid: 4e9f8640f466bb94088b76f79e782068, type: 3}
   m_victorySound: {fileID: 8300000, guid: bdf5a16a12aee21488098a1ae16ed604, type: 3}
@@ -1177,7 +1179,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Turns
 
-    3'
+    0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

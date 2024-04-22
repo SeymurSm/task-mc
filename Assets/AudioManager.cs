@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     AudioSource audioPlayer;
  
-    [SerializeField] AudioClip pair, won, lol, cardShuffle;
+    [SerializeField] AudioClip pair, won, lol, cardShuffle, cardFlip;
 
     void Awake()
     {
@@ -45,5 +45,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayCardShuffle(){
         audioPlayer.PlayOneShot(cardShuffle, 1);
+    }
+
+    public void PlayCardFlip(){
+        audioPlayer.PlayOneShot(cardFlip, 1);
     }
 }

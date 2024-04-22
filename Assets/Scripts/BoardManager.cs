@@ -12,6 +12,8 @@ public class BoardManager : MonoBehaviour
     [SerializeField] private GameObject m_cardBoard;
     [SerializeField] private GameObject m_resultPanel;
     [SerializeField] private TMP_Text m_resultText;
+    [SerializeField] private TMP_Text m_turnCount;
+    [SerializeField] private TMP_Text m_matchesCount;
     [SerializeField] private uint m_numberOfPairs = 14;
 
     [SerializeField] private AudioClip m_pairSound = null;
@@ -22,6 +24,9 @@ public class BoardManager : MonoBehaviour
     private bool m_isCardSelected = false;
     private Card m_selectedCard = null;
     private uint m_pairsRemaing = 0;
+
+    private byte turnCount = 0;
+    private byte matchCount = 0;
     
     void Awake()
     {
@@ -55,6 +60,8 @@ public class BoardManager : MonoBehaviour
             {
                 if (!ClickedCardWasAlreadySelected(clickedCard))
                 {
+                    ++turnCount;
+                    m_turnCount.text = "Turns\n" + turnCount;
                     clickedCard.Flip();
                     StartCoroutine(CheckForPairAndGameOver(clickedCard));
                 }
@@ -68,6 +75,8 @@ public class BoardManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.1f);
         if (SelectedCardsArePair(clickedCard))
         {
+            ++matchCount;
+            m_matchesCount.text = "Matches\n" + matchCount;
             TakeCardsFromBoard(clickedCard);
             //TODO: Play victory sound
             AudioManager.instance.PlayPair();

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
-    [SerializeField] private AudioClip m_flip = null;
+    //[SerializeField] private AudioClip m_flip = null;
     [SerializeField] private CardSO m_cardData = null;
     [SerializeField] private Sprite m_cardBackSprite = null;
     
@@ -30,7 +30,7 @@ public class Card : MonoBehaviour
         else
             FlipUp();
         m_isFlippedUp = !m_isFlippedUp;
-        //PlaySound.instance.Play(m_flip);
+        AudioManager.instance.PlayCardFlip();
     }
     private void FlipUp()
     {
