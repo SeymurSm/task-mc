@@ -6,6 +6,7 @@ static class Constants
     public const string COLUMNS_FLAG =  "columns";
     public const string HARDNESS_FLAG =  "hardness";
     public const string MODE_FLAG =  "mode";
+    public const string MUSIC_FLAG =  "music";
     
     // scene
     public const int MAIN_MENU_SCENE = 0; 

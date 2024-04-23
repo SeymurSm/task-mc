@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] TMP_Text m_highscoreText;
     [SerializeField] Toggle[] m_hardnessToggles;
     [SerializeField] Toggle[] m_modeToggles;
+    [SerializeField] Toggle m_musicToggle;
 
     void Start(){
         int hardness = PlayerPrefs.GetInt(Application.identifier + Constants.HARDNESS_FLAG, 0);
@@ -21,13 +22,18 @@ public class MenuManager : MonoBehaviour
 
         int highS = PlayerPrefs.GetInt(Application.identifier + Constants.HIGHSCORE_FLAG, 0);
         m_highscoreText.text = "Highscore:"+highS;
+
+        int music = PlayerPrefs.GetInt(Application.identifier + Constants.MUSIC_FLAG, 1);
+        if(music == 0){
+            m_musicToggle.isOn = false;
+        }
     }
     public void PlayGame(){
         SceneController.instance.PlayGame();
     }
 
     public void MusicControl(Toggle musicToggle){
-        m_musicPlayer.enabled = musicToggle.isOn;
+        AudioManager.instance.ControlBackgroundMusic(musicToggle);
     }  
 
     public void SetGameHardness(int hardness){

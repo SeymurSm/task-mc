@@ -1,22 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     AudioSource audioPlayer;
+    [SerializeField] AudioSource m_backgroundPlayer;
  
     [SerializeField] AudioClip pair, won, lol, cardShuffle, cardFlip;
 
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-    }
-
-
-    void Start()
-    {
         if (instance != null && instance != this) 
         { 
             Destroy(this.gameObject); 
@@ -27,7 +24,14 @@ public class AudioManager : MonoBehaviour
             instance = this; 
         } 
         audioPlayer = GetComponent<AudioSource>();
-        //Instance = this;
+    }
+
+    public void ControlBackgroundMusic(Toggle musicToggle){
+        m_backgroundPlayer.enabled = musicToggle.isOn;
+        if(musicToggle.isOn)
+            PlayerPrefs.SetInt(Application.identifier + Constants.MUSIC_FLAG, 1);
+        else
+            PlayerPrefs.SetInt(Application.identifier + Constants.MUSIC_FLAG, 0);
     }
 
     public void PlayPair(){
