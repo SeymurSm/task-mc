@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    AudioSource audioPlayer;
+    AudioSource _audioPlayer;
     [SerializeField] AudioSource m_backgroundPlayer;
  
-    [SerializeField] AudioClip pair, won, lol, cardShuffle, cardFlip;
+    [SerializeField] AudioClip m_pair, m_won, m_lol, m_cardShuffle, m_cardFlip, m_correctMatch, m_wrongMatch;
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
         { 
             instance = this; 
         } 
-        audioPlayer = GetComponent<AudioSource>();
+        _audioPlayer = GetComponent<AudioSource>();
     }
 
     public void ControlBackgroundMusic(Toggle musicToggle){
@@ -35,23 +35,30 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayPair(){
-        audioPlayer.PlayOneShot(pair, 1);
+        _audioPlayer.PlayOneShot(m_pair, 1);
     }
 
 
     public void PlayWon(){
-        audioPlayer.PlayOneShot(won, 1);
+        _audioPlayer.PlayOneShot(m_won, 1);
     }
 
     public void PlayLol(){
-        audioPlayer.PlayOneShot(lol, 1);
+        _audioPlayer.PlayOneShot(m_lol, 1);
     }
 
     public void PlayCardShuffle(){
-        audioPlayer.PlayOneShot(cardShuffle, 1);
+        _audioPlayer.PlayOneShot(m_cardShuffle, 1);
     }
 
     public void PlayCardFlip(){
-        audioPlayer.PlayOneShot(cardFlip, 1);
+        _audioPlayer.PlayOneShot(m_cardFlip, 1);
+    }
+    public void PlayWrongMatch(){
+        _audioPlayer.PlayOneShot(m_wrongMatch, 1);
+    }
+
+    public void PlayCorrectMatch(){
+        _audioPlayer.PlayOneShot(m_correctMatch, 1);
     }
 }

@@ -1001,10 +1001,8 @@ MonoBehaviour:
   m_resultPanel: {fileID: 1880373474}
   m_resultText: {fileID: 2083511125}
   m_scoreText: {fileID: 1986945784}
-  m_turnCount: {fileID: 2039004540}
-  m_matchesCount: {fileID: 1113490833}
-  m_pairSound: {fileID: 8300000, guid: 4e9f8640f466bb94088b76f79e782068, type: 3}
-  m_victorySound: {fileID: 8300000, guid: bdf5a16a12aee21488098a1ae16ed604, type: 3}
+  m_turnCountText: {fileID: 2039004540}
+  m_matchesCountText: {fileID: 1113490833}
 --- !u!4 &1231783286
 Transform:
   m_ObjectHideFlags: 0

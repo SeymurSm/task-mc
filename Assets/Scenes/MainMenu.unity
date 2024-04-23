@@ -1547,6 +1547,7 @@ MonoBehaviour:
   - {fileID: 445459623}
   - {fileID: 176588420}
   - {fileID: 913101677}
+  m_musicToggle: {fileID: 957227145}
 --- !u!4 &421942263
 Transform:
   m_ObjectHideFlags: 0
@@ -2578,6 +2579,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: SetGameModeRandom
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 421942262}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: SetGameMode
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6168,11 +6181,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca9636723edb40458bd8c29dedcb654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pair: {fileID: 8300000, guid: 4e9f8640f466bb94088b76f79e782068, type: 3}
-  won: {fileID: 8300000, guid: 10ca3c97b368e80408c1984521cb1b43, type: 3}
-  lol: {fileID: 0}
-  cardShuffle: {fileID: 8300000, guid: 7bc3066c4219ede40974aaa7cf071b86, type: 3}
-  cardFlip: {fileID: 8300000, guid: 2b486bc1d6128ec4f82c029e5b4d22b3, type: 3}
+  m_backgroundPlayer: {fileID: 1589691677}
+  m_pair: {fileID: 8300000, guid: 4e9f8640f466bb94088b76f79e782068, type: 3}
+  m_won: {fileID: 8300000, guid: bdf5a16a12aee21488098a1ae16ed604, type: 3}
+  m_lol: {fileID: 0}
+  m_cardShuffle: {fileID: 8300000, guid: 7bc3066c4219ede40974aaa7cf071b86, type: 3}
+  m_cardFlip: {fileID: 8300000, guid: 2b486bc1d6128ec4f82c029e5b4d22b3, type: 3}
+  m_correctMatch: {fileID: 8300000, guid: dce3148dc2c93624da4f842024af167f, type: 3}
+  m_wrongMatch: {fileID: 8300000, guid: 0c569402766ace74a8f9fc2b0556e91a, type: 3}
 --- !u!4 &8163885757995994984
 Transform:
   m_ObjectHideFlags: 0

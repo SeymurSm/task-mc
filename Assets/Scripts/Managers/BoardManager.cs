@@ -14,19 +14,16 @@ public class BoardManager : MonoBehaviour
     [SerializeField] private GameObject m_resultPanel;
     [SerializeField] private TMP_Text m_resultText;
     [SerializeField] private TMP_Text m_scoreText;
-    [SerializeField] private TMP_Text m_turnCount;
-    [SerializeField] private TMP_Text m_matchesCount;
-    [SerializeField] private AudioClip m_pairSound = null;
-    [SerializeField] private AudioClip m_victorySound = null;
-    
+    [SerializeField] private TMP_Text m_turnCountText;
+    [SerializeField] private TMP_Text m_matchesCountText;
     private LinkedList<int> possibleIndexes;
     private bool m_canClick = true;
     private bool m_isCardSelected = false;
     private Card m_selectedCard = null;
     private uint m_pairsRemaing = 0;
 
-    private byte turnCount = 0;
-    private byte matchCount = 0;
+    private byte m_turnCount = 0;
+    private byte m_matchCount = 0;
 
     int rows, columns;
     
@@ -68,8 +65,8 @@ public class BoardManager : MonoBehaviour
             {
                 if (!ClickedCardWasAlreadySelected(clickedCard))
                 {
-                    ++turnCount;
-                    m_turnCount.text = "Turns\n" + turnCount;
+                    ++m_turnCount;
+                    m_turnCountText.text = "Turns\n" + m_turnCount;
                     clickedCard.Flip();
                     StartCoroutine(CheckForPairAndGameOver(clickedCard));
                 }
@@ -83,11 +80,12 @@ public class BoardManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         if (SelectedCardsArePair(clickedCard))
         {
-            ++matchCount;
-            m_matchesCount.text = "Matches\n" + matchCount;
+            ++m_matchCount;
+            m_matchesCountText.text = "Matches\n" + m_matchCount;
             TakeCardsFromBoard(clickedCard);
             //TODO: Play victory sound
             AudioManager.instance.PlayPair();
+            AudioManager.instance.PlayCorrectMatch();
             if (GameIsOver())
             {
                 OnGameOver();
@@ -102,13 +100,14 @@ public class BoardManager : MonoBehaviour
         else
         {
             clickedCard.Flip();
+            AudioManager.instance.PlayWrongMatch();
         }
         DeselectCard();
         m_canClick = true;
     }
 
     private void CalculateScore(){
-        int score = (matchCount  + turnCount)*100;
+        int score = (m_matchCount  + m_turnCount)*100;
         m_scoreText.text = "Score: "+(score);
 
         if(score>PlayerPrefs.GetInt(Application.identifier + Constants.HIGHSCORE_FLAG, 0)){
