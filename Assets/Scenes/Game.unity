@@ -356,7 +356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &312134263
@@ -1003,7 +1003,6 @@ MonoBehaviour:
   m_scoreText: {fileID: 1986945784}
   m_turnCount: {fileID: 2039004540}
   m_matchesCount: {fileID: 1113490833}
-  m_numberOfPairs: 8
   m_pairSound: {fileID: 8300000, guid: 4e9f8640f466bb94088b76f79e782068, type: 3}
   m_victorySound: {fileID: 8300000, guid: bdf5a16a12aee21488098a1ae16ed604, type: 3}
 --- !u!4 &1231783286

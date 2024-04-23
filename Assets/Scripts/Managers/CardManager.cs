@@ -20,8 +20,8 @@ public class CardManager : MonoBehaviour
 
     private void PopulateCardList()
     {
-        rows = PlayerPrefs.GetInt(Application.identifier + "rows");
-        columns = PlayerPrefs.GetInt(Application.identifier + "columns");
+        rows = PlayerPrefs.GetInt(Application.identifier + Constants.ROWS_FLAG);
+        columns = PlayerPrefs.GetInt(Application.identifier + Constants.COLUMNS_FLAG);
 
         m_cardsToBeUsed = new LinkedList<CardSO>();
         for (int i = 0; i<rows*columns/2; i++)

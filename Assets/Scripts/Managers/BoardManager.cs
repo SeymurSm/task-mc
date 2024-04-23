@@ -16,8 +16,6 @@ public class BoardManager : MonoBehaviour
     [SerializeField] private TMP_Text m_scoreText;
     [SerializeField] private TMP_Text m_turnCount;
     [SerializeField] private TMP_Text m_matchesCount;
-    [SerializeField] private uint m_numberOfPairs = 14;
-
     [SerializeField] private AudioClip m_pairSound = null;
     [SerializeField] private AudioClip m_victorySound = null;
     
