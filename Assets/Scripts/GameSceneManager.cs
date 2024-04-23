@@ -7,4 +7,8 @@ public class GameSceneManager : MonoBehaviour
     public void GotoHome(){
         SceneController.instance.GotoHome();
     }
+
+    public void Replay(){
+        SceneController.instance.PlayGame();
+    }
 }

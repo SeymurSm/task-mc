@@ -23,11 +23,6 @@ public class CardManager : MonoBehaviour
         rows = PlayerPrefs.GetInt(Application.identifier + "rows");
         columns = PlayerPrefs.GetInt(Application.identifier + "columns");
 
-        if(rows == -1 && columns == -1){
-            rows = Random.Range(2, 8);
-            columns = Random.Range(2, 8);
-        }
-
         m_cardsToBeUsed = new LinkedList<CardSO>();
         for (int i = 0; i<rows*columns/2; i++)
         {

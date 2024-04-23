@@ -13,6 +13,7 @@ public class BoardManager : MonoBehaviour
     [SerializeField] private GameObject m_cardBoard;
     [SerializeField] private GameObject m_resultPanel;
     [SerializeField] private TMP_Text m_resultText;
+    [SerializeField] private TMP_Text m_scoreText;
     [SerializeField] private TMP_Text m_turnCount;
     [SerializeField] private TMP_Text m_matchesCount;
     [SerializeField] private uint m_numberOfPairs = 14;
@@ -35,11 +36,6 @@ public class BoardManager : MonoBehaviour
     {
         rows = PlayerPrefs.GetInt(Application.identifier + "rows");
         columns = PlayerPrefs.GetInt(Application.identifier + "columns");
-
-        if(rows == -1 && columns == -1){
-            rows = Random.Range(2, 8);
-            columns = Random.Range(2, 8);
-        }
 
         InitCards();
         m_pairsRemaing = (uint)(rows*columns)/2;
@@ -85,7 +81,7 @@ public class BoardManager : MonoBehaviour
     private IEnumerator CheckForPairAndGameOver(Card clickedCard)
     {
         m_canClick = false;
-        yield return new WaitForSecondsRealtime(1.1f);
+        yield return new WaitForSecondsRealtime(0.5f);
         if (SelectedCardsArePair(clickedCard))
         {
             ++matchCount;
@@ -97,7 +93,8 @@ public class BoardManager : MonoBehaviour
             {
                 OnGameOver();
                 PlayerPrefs.SetInt(Constants.NEW_SCORE_FLAG, 1);
-                m_resultText.text = "Game Finished";
+                m_resultText.text = "You Won!";
+                CalculateScore();
                 m_resultPanel.SetActive(true);
                 //TODO: Play victory sound
                 AudioManager.instance.PlayWon();
@@ -110,6 +107,19 @@ public class BoardManager : MonoBehaviour
         }
         DeselectCard();
         m_canClick = true;
+    }
+
+    private void CalculateScore(){
+        int score = (matchCount  + turnCount)*100;
+        m_scoreText.text = "Score: "+(score);
+
+        if(score>PlayerPrefs.GetInt(Application.identifier + "highscore", 0))
+           PlayerPrefs.SetInt(Application.identifier + "highscore", score);
+    }
+
+    public void LoseGame(){
+        m_resultText.text = "You Lose!";
+        m_resultPanel.SetActive(true);
     }
     
     private void TakeCardsFromBoard(Card cardToTake)
