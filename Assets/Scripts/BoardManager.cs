@@ -34,6 +34,7 @@ public class BoardManager : MonoBehaviour
     
     void Awake()
     {
+        //Reading saved size paramaters and generating board
         rows = PlayerPrefs.GetInt(Application.identifier + "rows");
         columns = PlayerPrefs.GetInt(Application.identifier + "columns");
 
