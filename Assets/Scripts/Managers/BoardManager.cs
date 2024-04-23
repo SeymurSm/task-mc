@@ -35,8 +35,8 @@ public class BoardManager : MonoBehaviour
     void Awake()
     {
         //Reading saved size paramaters and generating board
-        rows = PlayerPrefs.GetInt(Application.identifier + "rows");
-        columns = PlayerPrefs.GetInt(Application.identifier + "columns");
+        rows = PlayerPrefs.GetInt(Application.identifier + Constants.ROWS_FLAG);
+        columns = PlayerPrefs.GetInt(Application.identifier + Constants.COLUMNS_FLAG);
 
         InitCards();
         m_pairsRemaing = (uint)(rows*columns)/2;
@@ -93,7 +93,6 @@ public class BoardManager : MonoBehaviour
             if (GameIsOver())
             {
                 OnGameOver();
-                PlayerPrefs.SetInt(Constants.NEW_SCORE_FLAG, 1);
                 m_resultText.text = "You Won!";
                 CalculateScore();
                 m_resultPanel.SetActive(true);
@@ -114,8 +113,9 @@ public class BoardManager : MonoBehaviour
         int score = (matchCount  + turnCount)*100;
         m_scoreText.text = "Score: "+(score);
 
-        if(score>PlayerPrefs.GetInt(Application.identifier + "highscore", 0))
-           PlayerPrefs.SetInt(Application.identifier + "highscore", score);
+        if(score>PlayerPrefs.GetInt(Application.identifier + Constants.HIGHSCORE_FLAG, 0)){
+           PlayerPrefs.SetInt(Application.identifier + Constants.HIGHSCORE_FLAG, score);
+        }
     }
 
     public void LoseGame(){

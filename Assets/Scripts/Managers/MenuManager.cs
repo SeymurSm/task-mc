@@ -13,13 +13,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Toggle[] m_modeToggles;
 
     void Start(){
-        int hardness = PlayerPrefs.GetInt(Application.identifier + "hardness", 0);
+        int hardness = PlayerPrefs.GetInt(Application.identifier + Constants.HARDNESS_FLAG, 0);
         m_hardnessToggles[hardness].SetIsOnWithoutNotify(true);
 
-        int mode = PlayerPrefs.GetInt(Application.identifier + "mode", 0);
+        int mode = PlayerPrefs.GetInt(Application.identifier + Constants.MODE_FLAG, 0);
         m_modeToggles[mode].SetIsOnWithoutNotify(true);
 
-        int highS = PlayerPrefs.GetInt(Application.identifier + "highscore", 0);
+        int highS = PlayerPrefs.GetInt(Application.identifier + Constants.HIGHSCORE_FLAG, 0);
         m_highscoreText.text = "Highscore:"+highS;
     }
     public void PlayGame(){
@@ -31,16 +31,16 @@ public class MenuManager : MonoBehaviour
     }  
 
     public void SetGameHardness(int hardness){
-        PlayerPrefs.SetInt(Application.identifier + "hardness", hardness);
+        PlayerPrefs.SetInt(Application.identifier + Constants.HARDNESS_FLAG, hardness);
     }
     public void SetGameMode(int mode){
-        PlayerPrefs.SetInt(Application.identifier + "mode", mode);
+        PlayerPrefs.SetInt(Application.identifier + Constants.MODE_FLAG, mode);
     }
     public void SetGameModeRows(int rows){
-        PlayerPrefs.SetInt(Application.identifier + "rows", rows);
+        PlayerPrefs.SetInt(Application.identifier + Constants.ROWS_FLAG, rows);
     }    
     public void SetGameModeColumns(int columns){
-        PlayerPrefs.SetInt(Application.identifier + "columns", columns);
+        PlayerPrefs.SetInt(Application.identifier + Constants.COLUMNS_FLAG, columns);
     }    
 
     public void SetGameModeRandom(){
@@ -53,7 +53,7 @@ public class MenuManager : MonoBehaviour
                 columns++;
             }
         }
-        PlayerPrefs.SetInt(Application.identifier + "columns", columns);
-        PlayerPrefs.SetInt(Application.identifier + "rows", rows);
+        PlayerPrefs.SetInt(Application.identifier + Constants.COLUMNS_FLAG, columns);
+        PlayerPrefs.SetInt(Application.identifier + Constants.ROWS_FLAG, rows);
     }   
 }

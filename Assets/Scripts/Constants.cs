@@ -1,7 +1,11 @@
 static class Constants
 {
     // player prefs
-    public const string NEW_SCORE_FLAG = "newScore"; 
+    public const string HIGHSCORE_FLAG =  "highscore";
+    public const string ROWS_FLAG =  "rows";
+    public const string COLUMNS_FLAG =  "columns";
+    public const string HARDNESS_FLAG =  "hardness";
+    public const string MODE_FLAG =  "mode";
     
     // scene
     public const int MAIN_MENU_SCENE = 0; 
@@ -19,12 +23,4 @@ static class Constants
     public const string DELIMITER = ":";
     public const int SECONDS = 59;
     
-    // leaderboard
-    public const int MAX_ENTRIES = 10;
-    
-    // persistent data
-    public const string NICKNAME_STRING = "UserNickname";
-    
-    // 
-    public const int SECONDS_BEFORE_LEAVING_VICTORY_SCREEN = 4;
 }
